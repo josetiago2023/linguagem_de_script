@@ -1,0 +1,214 @@
+// var a= 5
+// var res = 1
+// for(i = a; i = > 0; i--);
+// res = res + i;
+// console.log(res)
+
+// def MediaQueryList(a)
+// if a == 1:
+// return 1
+
+// else:
+//     res = a * MediaQueryList(a-1)
+//     return res
+
+// function multi(var a)
+// if(a===1){
+//     return 1;
+// else{
+//     return a * multi(a-1);
+// }
+// }
+
+// console.log("Olá, Mundo!");
+
+// console.log("Olá! Esta mensagem foi impressa no terminal do GitHub Actions.");
+<!-- 
+
+
+
+<html>
+    <head>
+        <style>
+            #id01 {
+                color: red;
+            }
+            #id02 {
+                color: green;
+            
+            }
+            #id03 {
+                color: blue;
+            
+            }
+            .cl1 {
+               background: yellow; 
+            }
+            .cl2{
+                font-style: italic;
+            }
+
+
+        </style>
+
+    </head>
+   
+    <body>
+         <p id="id01">
+        Texto1
+    </p>
+    <p id="id02" class="cl1">Texto2</p>
+    <p id="id03" class="cl1 cl2">Texto3</p>
+    <button onclick="mudarcor()">Aperte em mim</button>
+
+    </body>
+    <script>  
+        function mudarcor(){
+            document.getElementByld("id01").style="color:green";
+            // const
+             let lista_tags_cli = document.getElementByClassName("cl1");
+
+            // for (int i < 0; i < lista_tags_cl1[i])
+            for (let i = 0; i < lista_tags_cl1.leght; i++){
+                let elemento = lista_tags_cl1[i];
+                elemento.style = "background: black";
+            }
+
+        }
+        function adicionarTexto(){
+            // document.getElememntByld("id03").innnerHTML = documentElementByld
+            let novotexto = document.getElememntByld("id03")
+        }
+    </script>
+</html>
+
+
+
+
+<html> 
+    <script>
+        let banco_dados = {"feijao" : 1, "arroz" : 2};
+
+        let banco_dados_str = JSON.stringify(banco_dados);
+        localStorege.setItem("banco_dados_farmacia", banco_dados_str);
+
+        let banco_dados_str = localStore.getItem("banco_dados_farmacia");
+        let banco_dados = JSON.parse(banco_dados_str);
+
+        banco_dados["arroz"] = banco_dados["arroz"] - 1;
+        banco_dados_str = JSON.stringfy(banco_dados);
+        localStore.setItem("banco_dados_farmacia", banco_dados_str);
+
+
+        // let banco_dados = l
+        alert(banco_dados_str);
+    </script>
+</html> -->
+
+
+
+
+
+
+
+<!-- <html> 
+    <script>
+        // 1. Criar dados
+        let banco_dados = {"feijao": 1, "arroz": 2};
+
+        // 2. Converter para string
+        let banco_dados_str = JSON.stringify(banco_dados);
+
+        // 3. Salvar no localStorage
+        localStorage.setItem("banco_dados_farmacia", banco_dados_str);
+
+        // 4. Recuperar do localStorage
+        banco_dados_str = localStorage.getItem("banco_dados_farmacia");
+
+        // 5. Converter de volta para objeto
+        banco_dados = JSON.parse(banco_dados_str);
+
+        // 6. Atualizar valor
+        banco_dados["arroz"] = banco_dados["arroz"] - 1;
+
+        // 7. Converter novamente para string
+        banco_dados_str = JSON.stringify(banco_dados);
+
+        // 8. Salvar atualizado
+        localStorage.setItem("banco_dados_farmacia", banco_dados_str);
+
+        // 9. Mostrar resultado
+        alert(banco_dados_str);
+    </script>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <html>
+    <script>
+         nome = input();
+    fabricante = input();
+    categoria = input();
+    console.log(categoria);
+
+    </script>
+   
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+    <head>Cadastro de Produto</head>
+
+    <body>
+        <h2>Cadastro de Produto</h2>
+
+    Nome: <input type="text" id = nome> <br></br> 
+    Fabricante: <input type="text" id = fabricante><br></br> 
+    <select name="" id="categoria">
+        <option value="medicamento">Medicamento</option>
+        <option value="Higiene">higiene</option>
+        <option value="cosmetico">cosmetico</option>
+        <br></br>
+
+    Preço: <input type="number" id = "preco"><br></br>
+    <button onclick = "cadastrar()">Salvar</button>
+    <script>
+        function cadastrar(){
+            let nome = documentgetElementByID("nome").value;
+            let fabricante = documentgetElementByID("fabricante").value;
+            let categoria = documentElementById("categoria").value;
+            let preco = documentgetElementByID("preco").value;
+
+            
+
+        }
+    </script>
+
+
+    </select>
+
+    </body>
+</html>
