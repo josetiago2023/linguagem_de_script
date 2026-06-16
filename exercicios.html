@@ -180,7 +180,7 @@
 <!-- 
 
 <html>
-    <head>Cadastro de Produto</head>
+ <head>Cadastro de Produto</head>
 
     <body>
         <h2>Cadastro de Produto</h2>
@@ -216,8 +216,8 @@
 
 
 
-
-//q18 4.3
+<!-- 
+//q18 4.3 -->
 <script>
     valor = prompt("digite um valor");
     let valor_num = parseInt(valor);
@@ -259,7 +259,7 @@
     let n3 = prompt();
 
 </script> -->
-
+<!-- 
 
 <html>
     <body>
@@ -285,10 +285,10 @@ console.log("Ordem não-crescente:", numeros[0], ",", numeros[1]);
 
         </script>
     </body>
-</html>
+</html> -->
 
 
-
+<!-- 
 <script>
     let n = prompt("digite");
     let n1 = parseInt(n);
@@ -303,8 +303,8 @@ console.log("Ordem não-crescente:", numeros[0], ",", numeros[1]);
         //console.log(n2);
         //console.log(n3);
     }else if
-</script>
-
+</script> -->
+<!-- 
 
 
 <script>
@@ -316,4 +316,113 @@ console.log("Ordem não-crescente:", numeros[0], ",", numeros[1]);
 
         vetor
     }
+</script> -->
+
+
+
+
+<script>
+    let n1 = 10;
+    localstorage.setItem("local", n1);
+    alert("SALVOU");
 </script>
+
+
+
+
+
+
+<!-- 
+<html>
+ <head>Cadastro de Produto
+
+<style>
+        body{
+            font-family: Arial;
+            margin: 20px;
+        }
+
+        input, select{
+            margin-bottom: 10px;
+            padding: 5px;
+            width: 250px;
+        }
+
+        button{
+            padding: 10px;
+            background-color: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #listaProdutos{
+            margin-top: 20px;
+        }
+
+        .produto{
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+    </style>
+
+
+
+
+
+ </head>
+
+    <body>
+        <h2>Cadastro de Produto</h2>
+
+    Nome: <input type="text" id = nome> <br></br> 
+    Fabricante: <input type="text" id = fabricante><br></br> 
+    <select name="" id="categoria">
+        <option value="medicamento">Medicamento</option>
+        <option value="Higiene">higiene</option>
+        <option value="cosmetico">cosmetico</option>
+        <br></br>
+
+    Preço: <input type="number" id = "preco"><br></br>
+    <button onclick = "cadastrar()">Salvar</button>
+    <script>
+        function cadastrar(){
+            let nome = documentgetElementByID("nome").value;
+            let fabricante = documentgetElementByID("fabricante").value;
+            let categoria = documentElementById("categoria").value;
+            let preco = documentgetElementByID("preco").value;
+
+            
+
+        }
+
+         if(nome == "" || fabricante == "" || preco == "" || quantidade == ""){
+                alert("Preencha todos os campos!");
+                return;
+            }
+
+            let produto = {
+                nome: nome,
+                fabricante: fabricante,
+                categoria: categoria,
+                preco: preco,
+                quantidade: quantidade
+            };
+
+            produtos.push(produto);
+
+            mostrarProdutos();
+
+            limparCampos();
+
+            alert("Produto cadastrado com sucesso!");
+        }
+    </script>
+
+
+    </select>
+
+    </body>
+</html> -->

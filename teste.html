@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let n = "oi";
+        console.log(n);
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+<!-- <html>
+   let n = "josé";
+    <script>
+        console.log(n);
+    </script>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html>
+<body>
+
+<h3>Cadastro de Produtos</h3>
+
+<input type="text" id="nome" placeholder="Nome do produto"><br><br>
+
+<input type="text" id="fabricante" placeholder="Fabricante"><br><br>
+
+<select id="categoria">
+    <option>Medicamento</option>
+    <option>Higiene</option>
+    <option>Cosmético</option>
+</select><br><br>
+
+<button onclick="salvarProduto()">Salvar</button>
+
+<h4>Produto Cadastrado:</h4>
+<p id="resultado"></p>
+
+<script>
+function salvarProduto() {
+    let nome = document.getElementById("nome").value;
+    let fabricante = document.getElementById("fabricante").value;
+    let categoria = document.getElementById("categoria").value;
+
+    localStorage.setItem("nome", nome);
+    localStorage.setItem("fabricante", fabricante);
+    localStorage.setItem("categoria", categoria);
+
+    document.getElementById("resultado").innerHTML =
+        "Nome: " + nome + "<br>" +
+        "Fabricante: " + fabricante + "<br>" +
+        "Categoria: " + categoria;
+}
+</script>
+
+</body>
+</html>
+ -->
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="nome">
+<button onclick="salvarNome()">Salvar</button>
+
+<script>
+    
+function salvarNome() {
+    let nome = document.getElementById("nome").value;
+
+    localStorage.setItem("nome", nome);
+
+    alert("Nome salvo!");
+}
+</script>
+
+
+
+</body>
+</html>
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="nome" placeholder="Nome">
+<div id="historico"></div>
+<input id="numero"  placeholder="Fabricante">
+<select id = "categoria">
+    <option value="">Medicamento</option>
+    <option value="">Higiene</option>
+    <option value="">Cosmético</option>
+</select>
+
+<input id="preco" type="number" placeholder="Preço">
+<input id = "estoque" type="number" placeholder="Quantidade">
+
+<button onclick="salvar()">Salvar</button>
+
+
+
+<script>
+function salvar() {
+    let nome = document.getElementById("nome").value;
+    let numero = document.getElementById("numero").value;
+
+    let historico = JSON.parse(localStorage.getItem("historico")) || [];
+
+    historico.push(nome);
+
+    localStorage.setItem("historico", JSON.stringify(historico));
+
+    mostrar();
+}
+
+function mostrar() {
+    let historico = JSON.parse(localStorage.getItem("historico")) || [];
+
+    document.getElementById("historico").innerHTML =
+        historico.join("<br>");
+}
+
+mostrar();
+</script>
+</body>
+</html> -->
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<body>
+
+<input id="texto" placeholder="Nome">
+<input id="numero"  placeholder="Fabricante">
+
+
+
+
+<select id = "categoria">
+    <option value="">Medicamento</option>
+    <option value="">Higiene</option>
+    <option value="">Cosmético</option>
+</select>
+
+<input id="preco" type="number" placeholder="Preço">
+<input id = "estoque" type="number" placeholder="Quantidade">
+<button onclick="salvar()">Salvar</button>
+
+<h2 id="resultado"></h2>
+
+</section>
+
+<section>
+    <h2>Produtos</h2>
+    <div id="listaProdutos"></div>
+</section>
+
+<section>
+<h2>Cadastro de Cliente</h2>
+
+<input id="clienteNome" placeholder="Nome do Cliente">
+
+<button onclick="cadastrarCliente()">
+Cadastrar Cliente
+</button>
+
+<div id="listaClientes"></div>
+</section>
+
+<section>
+<h2>Venda</h2>
+
+<select id="produtoVenda"></select>
+
+<input id="quantidadeVenda"
+type="number"
+placeholder="Quantidade">
+
+<button onclick="vender()">
+Realizar Venda
+</button>
+
+<h3 id="totalVendas">
+Total vendido: R$ 0
+</h3>
+</section>
+
+
+
+
+<button onclick="salvar()">Salvar</button>
+
+<div id="historico"></div>
+
+<script>
+function salvar() {
+    let texto = document.getElementById("texto").value;
+    let numero = document.getElementById("numero").value;
+
+    let historico = JSON.parse(localStorage.getItem("historico")) || [];
+
+    historico.push(`Nome: ${texto} | Fabricante: ${numero}`);
+
+    localStorage.setItem("historico", JSON.stringify(historico));
+
+    mostrar();
+}
+
+function mostrar() {
+    let historico = JSON.parse(localStorage.getItem("historico")) || [];
+
+    document.getElementById("historico").innerHTML =
+        historico.join("<br>");
+}
+
+mostrar();
+</script>
+
+</body>
+</html> -->
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<body>
+ <h1>Sistema de farmácia</h1>
+    <section>
+        <h2>cadastro de produto</h2>
+<input type="text" id="nome" placeholder="Nome">
+<input type="text" id="sobrenome" placeholder="Fabricante">
+
+<select id = "categoria">
+    <option value="">Medicamento</option>
+    <option value="">Higiene</option>
+    <option value="">Cosmético</option>
+</select>
+
+<input id="preco" type="number" placeholder="Preço">
+<input id = "estoque" type="number" placeholder="Quantidade">
+<h2 id="resultado"></h2>
+
+</section>
+
+<section>
+    <h2>Produtos</h2>
+    <div id="listaProdutos"></div>
+</section>
+
+<section>
+<h2>Cadastro de Cliente</h2>
+
+<input id="clienteNome" placeholder="Nome do Cliente">
+
+<button onclick="cadastrarCliente()">
+Cadastrar Cliente
+</button>
+
+<div id="listaClientes"></div>
+</section>
+
+<section>
+<h2>Venda</h2>
+
+<select id="produtoVenda"></select>
+
+<input id="quantidadeVenda"
+type="number"
+placeholder="Quantidade">
+
+<button onclick="vender()">
+Realizar Venda
+</button>
+
+<h3 id="totalVendas">
+Total vendido: R$ 0
+</h3>
+</section>
+
+
+
+
+<button onclick="salvar()">Salvar</button>
+
+
+
+<script>
+function salvar() {
+    let nome = document.getElementById("nome").value;
+    let sobrenome = document.getElementById("sobrenome").value;
+
+    document.getElementById("resultado").innerHTML = nome + "<br>"    + sobrenome;
+}
+</script>
+
+</body>
+</html>
+
+ -->
+
+
+<!-- <!DOCTYPE html>
+<html>
+<body>
+
+<input type="text" id="nome" placeholder="Digite seu nome">
+<button onclick="salvar()">Salvar</button>
+
+<h2 id="mostrar"></h2>
+
+<script>
+function salvar() {
+    let nome = document.getElementById("nome").value;
+
+    localStorage.setItem("nome", nome);
+
+    document.getElementById("mostrar").innerHTML = nome;
+}
+</script>
+
+</body>
+</html>
+
+ -->
+
+ -->
+ -->
+
+ <!-- <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body>
+    <script>
+
+    </script>
+    
+ </body>
+ </html> -->

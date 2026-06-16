@@ -1,0 +1,362 @@
+<!-- <!-- <!-- <script>
+    localStorage.setItem("local", n1);
+    localStorage.setItem("usuario", "daniel");
+</script>
+
+
+<script>
+    let x = localStorage.getItem("local");
+    alert("Carregou");
+    alert(x);
+</script>
+
+<label> Usuario: </label> <input id="user"><br/>
+    <label for="">Senha:</label> <input id = "pass"><br/>
+    <button>Login</button>
+    <button onclick="fazer_login()"></button>
+    //pagina principal -->
+
+
+    <!-- <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            // Lista de produtos
+let estoque = []
+
+// Função para cadastrar produto
+function cadastrarProduto() {
+
+    let nome = prompt("Nome do produto:")
+    let fabricante = prompt("Fabricante:")
+    let categoria = prompt("Categoria:")
+    let precoCusto = parseFloat(prompt("Preço de custo:"))
+    let precoVenda = parseFloat(prompt("Preço de venda:"))
+    let quantidade = parseInt(prompt("Quantidade em estoque:"))
+    let validade = prompt("Data de validade:")
+
+    let produto = {
+        nome: nome,
+        fabricante: fabricante,
+        categoria: categoria,
+        precoCusto: precoCusto,
+        precoVenda: precoVenda,
+        quantidade: quantidade,
+        validade: validade
+    }
+
+    estoque.push(produto)
+
+    console.log("Produto cadastrado com sucesso!")
+}
+
+// Função para listar produtos
+function listarProdutos() {
+
+    if (estoque.length === 0) {
+        console.log("Nenhum produto cadastrado.")
+    } else {
+
+        for (let i = 0; i < estoque.length; i++) {
+
+            console.log("---------------")
+            console.log("Nome:", estoque[i].nome)
+            console.log("Fabricante:", estoque[i].fabricante)
+            console.log("Categoria:", estoque[i].categoria)
+            console.log("Preço venda:", estoque[i].precoVenda)
+            console.log("Quantidade:", estoque[i].quantidade)
+            console.log("Validade:", estoque[i].validade)
+        }
+    }
+}
+
+// Função para verificar estoque baixo
+function verificarEstoque() {
+
+    for (let i = 0; i < estoque.length; i++) {
+
+        if (estoque[i].quantidade <= 5) {
+
+            console.log(
+                "ALERTA: Estoque baixo do produto:",
+                estoque[i].nome
+            )
+        }
+    }
+}
+
+// MENU
+let opcao = ""
+
+while (opcao !== "4") {
+
+    opcao = prompt(
+        "=== SISTEMA FARMÁCIA ===\n" +
+        "1 - Cadastrar produto\n" +
+        "2 - Listar produtos\n" +
+        "3 - Verificar estoque baixo\n" +
+        "4 - Sair"
+    )
+
+    if (opcao === "1") {
+
+        cadastrarProduto()
+
+    } else if (opcao === "2") {
+
+        listarProdutos()
+
+    } else if (opcao === "3") {
+
+        verificarEstoque()
+
+    } else if (opcao === "4") {
+
+        console.log("Sistema encerrado.")
+
+    } else {
+
+        console.log("Opção inválida.")
+    }
+}
+
+
+
+
+
+
+
+
+        </script>
+    </body>
+    </html> -->
+
+
+
+     -->
+
+<!-- 
+
+     <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Produto</title>
+
+    <style>
+        body{
+            font-family: Arial;
+            margin: 20px;
+        }
+
+        input, select{
+            margin-bottom: 10px;
+            padding: 5px;
+            width: 250px;
+        }
+
+        button{
+            padding: 10px;
+            background-color: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #listaProdutos{
+            margin-top: 20px;
+        }
+
+        .produto{
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Cadastro de Produto - Farmácia</h2>
+
+    Nome:
+    <input type="text" id="nome"><br>
+
+    Fabricante:
+    <input type="text" id="fabricante"><br>
+
+    Categoria:
+    <select id="categoria">
+        <option value="Medicamento">Medicamento</option>
+        <option value="Higiene">Higiene</option>
+        <option value="Cosmético">Cosmético</option>
+    </select>
+    <br>
+
+    Preço:
+    <input type="number" id="preco"><br>
+
+    Quantidade:
+    <input type="number" id="quantidade"><br>
+
+    <button onclick="cadastrar()">
+        Salvar
+    </button>
+
+    <div id="listaProdutos"></div>
+
+    <script>
+
+        let produtos = [];
+
+        function cadastrar(){
+
+            let nome = document.getElementById("nome").value;
+            let fabricante = document.getElementById("fabricante").value;
+            let categoria = document.getElementById("categoria").value;
+            let preco = document.getElementById("preco").value;
+            let quantidade = document.getElementById("quantidade").value;
+
+            if(nome == "" || fabricante == "" || preco == "" || quantidade == ""){
+                alert("Preencha todos os campos!");
+                return;
+            }
+
+            let produto = {
+                nome: nome,
+                fabricante: fabricante,
+                categoria: categoria,
+                preco: preco,
+                quantidade: quantidade
+            };
+
+            produtos.push(produto);
+
+            mostrarProdutos();
+
+            limparCampos();
+
+            alert("Produto cadastrado com sucesso!");
+        }
+
+        function mostrarProdutos(){
+
+            let lista = document.getElementById("listaProdutos");
+
+            lista.innerHTML = "<h3>Produtos Cadastrados</h3>";
+
+            produtos.forEach(function(produto){
+
+                lista.innerHTML += `
+                    <div class="produto">
+                        <p><strong>Nome:</strong> ${produto.nome}</p>
+                        <p><strong>Fabricante:</strong> ${produto.fabricante}</p>
+                        <p><strong>Categoria:</strong> ${produto.categoria}</p>
+                        <p><strong>Preço:</strong> R$ ${produto.preco}</p>
+                        <p><strong>Quantidade:</strong> ${produto.quantidade}</p>
+                    </div>
+                `;
+            });
+        }
+
+        function limparCampos(){
+            document.getElementById("nome").value = "";
+            document.getElementById("fabricante").value = "";
+            document.getElementById("preco").value = "";
+            document.getElementById("quantidade").value = "";
+        }
+
+    </script>
+
+</body>
+</html> --> -->
+
+
+<!-- 
+<!DOCTYPE html>
+<html>
+<body>
+
+<input type="text" id="nome" placeholder="Digite seu nome">
+<button onclick="salvar()">Salvar</button>
+
+<h2 id="resultado"></h2>
+
+<script>
+function salvar() {
+    let nome = document.getElementById("nome").value;
+
+    // Salva no navegador
+    localStorage.setItem("nome", nome);
+
+    // Mostra na tela
+    document.getElementById("resultado").innerText = nome;
+}
+
+// Quando a página abrir, mostra o nome salvo
+let nomeSalvo = localStorage.getItem("nome");
+
+if (nomeSalvo) {
+    document.getElementById("resultado").innerText = nomeSalvo;
+}
+</script>
+
+</body>
+</html> -->
+
+
+
+<!-- 
+<!DOCTYPE html>
+<html>
+<body>
+
+<input type="text" id="nome">
+<button onclick="salvar()">Salvar</button>
+
+<p id="resultado"></p>
+
+<script>
+function salvar() {
+    let nome = document.getElementById("nome").value;
+
+    localStorage.setItem("nome", nome);
+
+    document.getElementById("resultado").innerText = nome;
+}
+</script>
+
+</body>
+</html> -->
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<input type="text" id="nome" placeholder="Digite seu nome">
+<button onclick="salvar()">Salvar</button>
+
+<h2 id="mostrar"></h2>
+
+<script>
+function salvar() {
+    let nome = document.getElementById("nome").value;
+
+    localStorage.setItem("nome", nome);
+
+    document.getElementById("mostrar").innerHTML = nome;
+}
+</script>
+
+</body>
+</html>
