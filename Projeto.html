@@ -6,11 +6,12 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Sistema de farmácia</h1>
+    <h1>Sistema de Gestão Farmacêutica (PharmaManager)</h1>
     <section>
         <h2>cadastro de produto</h2>
 <input id="nome" placeholder="Nome">
 <input id = "fabricante" placeholder="Fabricante">
+
 
 <select id = "categoria">
     <option value="">Medicamento</option>
@@ -18,43 +19,55 @@
     <option value="">Cosmético</option>
 </select>
 
+
 <input id="preco" type="number" placeholder="Preço">
 <input id = "estoque" type="number" placeholder="Quantidade">
+
 
 <button onclick="cadastrarProduto()">
     Cadastrar Produto
 </button>
 </section>
 
+
 <section>
     <h2>Produtos</h2>
     <div id="listaProdutos"></div>
 </section>
 
+
 <section>
 <h2>Cadastro de Cliente</h2>
 
+
 <input id="clienteNome" placeholder="Nome do Cliente">
+
 
 <button onclick="cadastrarCliente()">
 Cadastrar Cliente
 </button>
 
+
 <div id="listaClientes"></div>
 </section>
+
 
 <section>
 <h2>Venda</h2>
 
+
 <select id="produtoVenda"></select>
+
 
 <input id="quantidadeVenda"
 type="number"
 placeholder="Quantidade">
 
+
 <button onclick="vender()">
 Realizar Venda
 </button>
+
 
 <h3 id="totalVendas">
 Total vendido: R$ 0
@@ -62,17 +75,24 @@ Total vendido: R$ 0
 </section>
 
 
+
+
     <script>
+
+
 
 
 let produtos =
 JSON.parse(localStorage.getItem("produtos")) || [];
 
+
 let clientes =
 JSON.parse(localStorage.getItem("clientes")) || [];
 
+
 let vendas =
 JSON.parse(localStorage.getItem("vendas")) || [];
+
 
 function salvar(){
     localStorage.setItem(
@@ -80,10 +100,12 @@ function salvar(){
         JSON.stringify(produtos)
     );
 
+
     localStorage.setItem(
         "clientes",
         JSON.stringify(clientes)
     );
+
 
     localStorage.setItem(
         "vendas",
@@ -91,7 +113,9 @@ function salvar(){
     );
 }
 
+
 function cadastrarProduto(){
+
 
     let produto = {
         id: Date.now(),
@@ -106,15 +130,20 @@ function cadastrarProduto(){
         )
     };
 
+
     produtos.push(produto);
+
 
     salvar();
     atualizarTela();
 
+
     alert("Produto cadastrado!");
 }
 
+
 function cadastrarCliente(){
+
 
     let cliente = {
         id: Date.now(),
@@ -122,35 +151,46 @@ function cadastrarCliente(){
         pontos: 0
     };
 
+
     clientes.push(cliente);
+
 
     salvar();
     atualizarTela();
 
+
     alert("Cliente cadastrado!");
 }
 
+
 function vender(){
+
 
     let indice =
     document.getElementById("produtoVenda").value;
+
 
     let quantidade =
     Number(
     document.getElementById("quantidadeVenda").value
     );
 
+
     let produto = produtos[indice];
+
 
     if(quantidade > produto.estoque){
         alert("Estoque insuficiente!");
         return;
     }
 
+
     produto.estoque -= quantidade;
+
 
     let total =
     produto.preco * quantidade;
+
 
     vendas.push({
         produto: produto.nome,
@@ -158,14 +198,103 @@ function vender(){
         total: total
     });
 
+
     salvar();
     atualizarTela();
+
 
     alert(
         "Venda realizada! Total R$ "
         + total.toFixed(2)
     );
 }
+
+
+function atualizarTela(){
+
+
+    let listaProdutos =
+    document.getElementById("listaProdutos");
+
+
+    listaProdutos.innerHTML = "";
+
+
+    produtos.forEach((p,index)=>{
+
+
+        let alerta =
+        p.estoque < 10
+        ? " ⚠ ESTOQUE BAIXO"
+        : "";
+
+
+        listaProdutos.innerHTML += `
+        <p>
+        ${p.nome}
+        | ${p.categoria}
+        | R$ ${p.preco}
+        | Estoque: ${p.estoque}
+        ${alerta}
+        </p>
+        `;
+    });
+
+
+    let listaClientes =
+    document.getElementById("listaClientes");
+
+
+    listaClientes.innerHTML = "";
+
+
+    clientes.forEach(c=>{
+        listaClientes.innerHTML += `
+        <p>
+        ${c.nome}
+        | Pontos: ${c.pontos}
+        </p>
+        `;
+    });
+
+
+    let select =
+    document.getElementById("produtoVenda");
+
+
+    select.innerHTML = "";
+
+
+    produtos.forEach((p,index)=>{
+
+
+        select.innerHTML += `
+        <option value="${index}">
+        ${p.nome}
+        (Estoque: ${p.estoque})
+        </option>
+        `;
+    });
+
+
+    let total = 0;
+
+
+    vendas.forEach(v=>{
+        total += v.total;
+    });
+
+
+    document.getElementById(
+    "totalVendas"
+    ).innerText =
+    "Total vendido: R$ " +
+    total.toFixed(2);
+}
+
+
+atualizarTela();
+
 
     </script>
 </body>
